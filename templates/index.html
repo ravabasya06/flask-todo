@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/index.css') }}"
+/>
+{% endblock %} {% block body %}
+<div class="app-container">
+  <div class="todo-title">
+    <h1>Flask Todo App</h1>
+  </div>
+  <form class="form-container" action="/" method="post">
+    <div class="input-container">
+      <label>Title</label>
+      <input type="text" name="title" id="title" />
+      <label>Description</label>
+      <textarea name="description" id="description"></textarea>
+      <button type="submit">Create</button>
+    </div>
+  </form>
+  <div class="table-container">
+    {% if items|length < 1 %}
+    <p>There are currently no tasks!</p>
+    {% else %}
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Created At</th>
+          <th>Updated At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{ item.title }}</td>
+          <td>
+            <textarea disabled>{{ item.description }}</textarea>
+          </td>
+          <td>{{ item.created_at }}</td>
+          <td>{{ item.updated_at }}</td>
+          <td class="action-container">
+            <a href="/update/{{ item.id }}">Update</a>
+            <a href="/delete/{{ item.id }}">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  </div>
+</div>
+{%endblock %}

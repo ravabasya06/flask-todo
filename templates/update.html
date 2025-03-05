@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/index.css') }}"
+/>
+{% endblock %} {% block body %}
+<div class="app-container">
+  <div class="todo-title">
+    <h1>Update Your Task</h1>
+  </div>
+  <form class="form-container" action="/update/{{ item.id }}" method="post">
+    <div class="input-container">
+      <label>Title</label>
+      <input type="text" name="title" id="title" value="{{ item.content }}" />
+      <label>Description</label>
+      <textarea name="description" id="description">
+{{ item.description }}</textarea
+      >
+      <button type="submit">Create</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
