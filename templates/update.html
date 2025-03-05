@@ -11,12 +11,12 @@
   <form class="form-container" action="/update/{{ item.id }}" method="post">
     <div class="input-container">
       <label>Title</label>
-      <input type="text" name="title" id="title" value="{{ item.content }}" />
+      <input type="text" name="title" id="title" value="{{ item.title }}" />
       <label>Description</label>
       <textarea name="description" id="description">
 {{ item.description }}</textarea
       >
-      <button type="submit">Create</button>
+      <button type="submit">Update</button>
     </div>
   </form>
 </div>
