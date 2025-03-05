@@ -2,10 +2,8 @@ After cloning, do
 
 ```sh
 py -3 -m venv .venv
-```
-
-```sh
 .venv/Scripts/activate
+
 ```
 
 After that, do
@@ -28,4 +26,6 @@ flask db upgrade
 
 And then
 
+```sh
 flask run
+```
